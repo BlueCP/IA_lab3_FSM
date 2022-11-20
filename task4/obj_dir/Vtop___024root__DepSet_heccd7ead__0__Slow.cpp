@@ -28,35 +28,34 @@ VL_ATTR_COLD void Vtop___024root___settle__TOP__0(Vtop___024root* vlSelf) {
           | (6U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
          | (7U == vlSelf->top__DOT__f1_fsm__DOT__currentState))) {
         if ((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) {
+            vlSelf->top__DOT__f1_fsm__DOT__nextState = 1U;
             vlSelf->out = 0U;
-            vlSelf->top__DOT__f1_fsm__DOT__nextState 
-                = ((IData)(vlSelf->trigger) ? 1U : 0U);
         } else if ((1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) {
-            vlSelf->out = 1U;
             vlSelf->top__DOT__f1_fsm__DOT__nextState = 2U;
+            vlSelf->out = 1U;
         } else if ((2U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) {
-            vlSelf->out = 3U;
             vlSelf->top__DOT__f1_fsm__DOT__nextState = 3U;
+            vlSelf->out = 3U;
         } else if ((3U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) {
-            vlSelf->out = 7U;
             vlSelf->top__DOT__f1_fsm__DOT__nextState = 4U;
+            vlSelf->out = 7U;
         } else if ((4U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) {
-            vlSelf->out = 0xfU;
             vlSelf->top__DOT__f1_fsm__DOT__nextState = 5U;
+            vlSelf->out = 0xfU;
         } else if ((5U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) {
-            vlSelf->out = 0x1fU;
             vlSelf->top__DOT__f1_fsm__DOT__nextState = 6U;
+            vlSelf->out = 0x1fU;
         } else if ((6U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) {
-            vlSelf->out = 0x3fU;
             vlSelf->top__DOT__f1_fsm__DOT__nextState = 7U;
+            vlSelf->out = 0x3fU;
         } else {
-            vlSelf->out = 0x7fU;
             vlSelf->top__DOT__f1_fsm__DOT__nextState = 8U;
+            vlSelf->out = 0x7fU;
         }
     } else {
+        vlSelf->top__DOT__f1_fsm__DOT__nextState = 0U;
         vlSelf->out = ((8U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
                         ? 0xffU : 0U);
-        vlSelf->top__DOT__f1_fsm__DOT__nextState = 0U;
     }
     vlSelf->top__DOT__cmd_seq = ((0U != vlSelf->top__DOT__f1_fsm__DOT__currentState) 
                                  & (8U != vlSelf->top__DOT__f1_fsm__DOT__currentState));

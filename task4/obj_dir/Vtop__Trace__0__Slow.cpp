@@ -11,17 +11,17 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     // Init
     const int c = vlSymsp->__Vm_baseCode;
     // Body
-    tracep->declBit(c+12,"clk", false,-1);
-    tracep->declBit(c+13,"rst", false,-1);
-    tracep->declBit(c+14,"trigger", false,-1);
-    tracep->declBus(c+15,"N", false,-1, 7,0);
-    tracep->declBus(c+16,"out", false,-1, 7,0);
+    tracep->declBit(c+13,"clk", false,-1);
+    tracep->declBit(c+14,"rst", false,-1);
+    tracep->declBit(c+15,"trigger", false,-1);
+    tracep->declBus(c+16,"N", false,-1, 7,0);
+    tracep->declBus(c+17,"out", false,-1, 7,0);
     tracep->pushNamePrefix("top ");
-    tracep->declBit(c+12,"clk", false,-1);
-    tracep->declBit(c+13,"rst", false,-1);
-    tracep->declBit(c+14,"trigger", false,-1);
-    tracep->declBus(c+15,"N", false,-1, 7,0);
-    tracep->declBus(c+16,"out", false,-1, 7,0);
+    tracep->declBit(c+13,"clk", false,-1);
+    tracep->declBit(c+14,"rst", false,-1);
+    tracep->declBit(c+15,"trigger", false,-1);
+    tracep->declBus(c+16,"N", false,-1, 7,0);
+    tracep->declBus(c+17,"out", false,-1, 7,0);
     tracep->declBit(c+1,"cmd_seq", false,-1);
     tracep->declBit(c+2,"cmd_delay", false,-1);
     tracep->declBit(c+3,"tick", false,-1);
@@ -30,17 +30,17 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBus(c+6,"K", false,-1, 6,0);
     tracep->pushNamePrefix("clktick ");
     tracep->declBus(c+18,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+12,"clk", false,-1);
-    tracep->declBit(c+13,"rst", false,-1);
+    tracep->declBit(c+13,"clk", false,-1);
+    tracep->declBit(c+14,"rst", false,-1);
     tracep->declBit(c+1,"en", false,-1);
-    tracep->declBus(c+15,"N", false,-1, 7,0);
+    tracep->declBus(c+16,"N", false,-1, 7,0);
     tracep->declBit(c+3,"tick", false,-1);
     tracep->declBus(c+7,"count", false,-1, 7,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("delay ");
     tracep->declBus(c+19,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+12,"clk", false,-1);
-    tracep->declBit(c+13,"rst", false,-1);
+    tracep->declBit(c+13,"clk", false,-1);
+    tracep->declBit(c+14,"rst", false,-1);
     tracep->declBit(c+2,"trigger", false,-1);
     tracep->declBus(c+6,"n", false,-1, 6,0);
     tracep->declBit(c+4,"time_out", false,-1);
@@ -49,19 +49,19 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBus(c+10,"next_state", false,-1, 31,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("f1_fsm ");
-    tracep->declBit(c+12,"clk", false,-1);
-    tracep->declBit(c+13,"rst", false,-1);
+    tracep->declBit(c+13,"clk", false,-1);
+    tracep->declBit(c+14,"rst", false,-1);
     tracep->declBit(c+5,"en", false,-1);
-    tracep->declBit(c+14,"trigger", false,-1);
-    tracep->declBus(c+16,"out", false,-1, 7,0);
+    tracep->declBit(c+15,"trigger", false,-1);
+    tracep->declBus(c+17,"out", false,-1, 7,0);
     tracep->declBit(c+1,"cmd_seq", false,-1);
     tracep->declBit(c+2,"cmd_delay", false,-1);
     tracep->declBus(c+11,"currentState", false,-1, 31,0);
-    tracep->declBus(c+17,"nextState", false,-1, 31,0);
+    tracep->declBus(c+12,"nextState", false,-1, 31,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("lfsr ");
-    tracep->declBit(c+12,"clk", false,-1);
-    tracep->declBit(c+13,"rst", false,-1);
+    tracep->declBit(c+13,"clk", false,-1);
+    tracep->declBit(c+14,"rst", false,-1);
     tracep->declBit(c+20,"en", false,-1);
     tracep->declBus(c+6,"out", false,-1, 6,0);
     tracep->popNamePrefix(2);
@@ -137,12 +137,7 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
                                                : 0U)
                                            : 0U))))),32);
     bufp->fullIData(oldp+11,(vlSelf->top__DOT__f1_fsm__DOT__currentState),32);
-    bufp->fullBit(oldp+12,(vlSelf->clk));
-    bufp->fullBit(oldp+13,(vlSelf->rst));
-    bufp->fullBit(oldp+14,(vlSelf->trigger));
-    bufp->fullCData(oldp+15,(vlSelf->N),8);
-    bufp->fullCData(oldp+16,(vlSelf->out),8);
-    bufp->fullIData(oldp+17,((((((((((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState) 
+    bufp->fullIData(oldp+12,((((((((((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState) 
                                      | (1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
                                     | (2U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
                                    | (3U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
@@ -151,10 +146,9 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
                                 | (6U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
                                | (7U == vlSelf->top__DOT__f1_fsm__DOT__currentState))
                                ? ((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                   ? ((IData)(vlSelf->trigger)
-                                       ? 1U : 0U) : 
-                                  ((1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                    ? 2U : ((2U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                   ? 1U : ((1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                            ? 2U : 
+                                           ((2U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
                                              ? 3U : 
                                             ((3U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
                                               ? 4U : 
@@ -169,6 +163,11 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
                                                     ? 7U
                                                     : 8U)))))))
                                : 0U)),32);
+    bufp->fullBit(oldp+13,(vlSelf->clk));
+    bufp->fullBit(oldp+14,(vlSelf->rst));
+    bufp->fullBit(oldp+15,(vlSelf->trigger));
+    bufp->fullCData(oldp+16,(vlSelf->N),8);
+    bufp->fullCData(oldp+17,(vlSelf->out),8);
     bufp->fullIData(oldp+18,(8U),32);
     bufp->fullIData(oldp+19,(7U),32);
     bufp->fullBit(oldp+20,(1U));

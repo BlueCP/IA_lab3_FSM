@@ -55,37 +55,44 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedVcd::Buffe
                                                  : 0U)
                                              : 0U))))),32);
         bufp->chgIData(oldp+10,(vlSelf->top__DOT__f1_fsm__DOT__currentState),32);
-    }
-    bufp->chgBit(oldp+11,(vlSelf->clk));
-    bufp->chgBit(oldp+12,(vlSelf->rst));
-    bufp->chgBit(oldp+13,(vlSelf->trigger));
-    bufp->chgCData(oldp+14,(vlSelf->N),8);
-    bufp->chgCData(oldp+15,(vlSelf->out),8);
-    bufp->chgIData(oldp+16,((((((((((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState) 
-                                    | (1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
-                                   | (2U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
-                                  | (3U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
-                                 | (4U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
-                                | (5U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
-                               | (6U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
-                              | (7U == vlSelf->top__DOT__f1_fsm__DOT__currentState))
-                              ? ((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                  ? ((IData)(vlSelf->trigger)
-                                      ? 1U : 0U) : 
-                                 ((1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                   ? 2U : ((2U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                            ? 3U : 
-                                           ((3U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                             ? 4U : 
-                                            ((4U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                              ? 5U : 
-                                             ((5U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                               ? 6U
-                                               : ((6U 
+        bufp->chgIData(oldp+11,((((((((((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState) 
+                                        | (1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
+                                       | (2U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
+                                      | (3U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
+                                     | (4U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
+                                    | (5U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
+                                   | (6U == vlSelf->top__DOT__f1_fsm__DOT__currentState)) 
+                                  | (7U == vlSelf->top__DOT__f1_fsm__DOT__currentState))
+                                  ? ((0U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                      ? 1U : ((1U == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                               ? 2U
+                                               : ((2U 
                                                    == vlSelf->top__DOT__f1_fsm__DOT__currentState)
-                                                   ? 7U
-                                                   : 8U)))))))
-                              : 0U)),32);
+                                                   ? 3U
+                                                   : 
+                                                  ((3U 
+                                                    == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                                    ? 4U
+                                                    : 
+                                                   ((4U 
+                                                     == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                                     ? 5U
+                                                     : 
+                                                    ((5U 
+                                                      == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                                      ? 6U
+                                                      : 
+                                                     ((6U 
+                                                       == vlSelf->top__DOT__f1_fsm__DOT__currentState)
+                                                       ? 7U
+                                                       : 8U)))))))
+                                  : 0U)),32);
+    }
+    bufp->chgBit(oldp+12,(vlSelf->clk));
+    bufp->chgBit(oldp+13,(vlSelf->rst));
+    bufp->chgBit(oldp+14,(vlSelf->trigger));
+    bufp->chgCData(oldp+15,(vlSelf->N),8);
+    bufp->chgCData(oldp+16,(vlSelf->out),8);
 }
 
 void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {

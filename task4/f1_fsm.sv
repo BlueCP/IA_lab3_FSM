@@ -6,13 +6,13 @@ module f1_fsm (input logic clk, rst, en, trigger, output logic[7:0] out, logic c
     always_ff @(posedge clk) begin
         if (rst)
             currentState <= S0; // Reset to 1 to generate a sequence
-        else if (en | trigger)
+        else if (en | (trigger & currentState == S0))
             currentState <= nextState;
     end
 
     always_comb begin
         case (currentState)
-            S0: nextState = trigger ? S1 : S0;
+            S0: nextState = S1;
             S1: nextState = S2;
             S2: nextState = S3;
             S3: nextState = S4;

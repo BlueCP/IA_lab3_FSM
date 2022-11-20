@@ -4,9 +4,17 @@
 #include "verilated_vcd_c.h"
 #include "vbuddy.cpp"
 
+enum ReactionState {
+    INIT,
+    COUNTING,
+    WAITING
+};
+
 int main(int argc, char **argv, char **env) {
     int i;
     int clk;
+    int reactionTime = -1;
+    ReactionState reactState = ReactionState::INIT;
 
     Verilated::commandArgs(argc, argv);
 
@@ -42,13 +50,29 @@ int main(int argc, char **argv, char **env) {
         }
 
         // Send data to Vbuddy
-        vbdBar(top->out & 0xff);
         vbdCycle(i);
+        vbdBar(top->out & 0xff);
+        if (reactionTime != -1) {
+            vbdHex(1, (reactionTime % 10) & 0xf);
+            vbdHex(2, ((reactionTime / 10 % 10)) & 0xf);
+            vbdHex(3, ((reactionTime / 100) % 10) & 0xf);
+            vbdHex(4, ((reactionTime / 1000) % 10) & 0xf);
+            reactionTime = -1;
+        }
 
-        // Update input signals
+        // Check light state and update input signals
         top->rst = (i < 2);
-        top->trigger = vbdFlag();
         top->N = vbdValue();
+        if (top->out != 0 && reactState == ReactionState::INIT) {
+            reactState = ReactionState::COUNTING;
+        } else if (top->out == 0 && reactState == ReactionState::COUNTING) {
+            reactState = ReactionState::WAITING;
+            vbdInitWatch();
+        } else if (reactState == ReactionState::WAITING && vbdFlag()) {
+            reactionTime = vbdElapsed();
+            reactState = ReactionState::INIT;
+        }
+        top->trigger = vbdFlag();
     }
 
     vbdClose();

@@ -21,8 +21,9 @@ However, when running the testbench for the combined component, it was found to 
 # Task 4
 
 Some notes on the FSM:
-- In f1_fsm, trigger is an input which sets the next state to S1 if the current state is S0. Otherwise, it will stay on S0 indefinitely. This means that trigger is needed to start the state machine.
-- In f1_fsm, the logic to set the current state to the next state must activate if en=1 or if trigger=1. Because en=0 when the current state is S0, we rely on trigger to start the sequence. After this, en is used to determine whether to update the state.
+- In f1_fsm, trigger is an input which can act like an enable, in that it updates the current state to the next state. However, it only does this if the current state is S0. It is incorporated into the logic that updates the state, so that the new condition for updating the state is en | (trigger & currentState == S0).
+- Trigger was implemented in this way so that if the state is not S0, trigger will do nothing. Implementing it in a way where it determines the next state if the current state is S0, and then replacing the en condition with en | trigger will have the desired effect for the most part, but will also cause the state to update whenever trigger is pressed, which I did not want.
+- In f1_fsm, the logic to set the current state to the next state must activate if en=1 or if trigger=1. Because en=0 when the current state is S0, we rely on trigger to start the sequence. After this, en is used to determine whether to update the state (and trigger has no effect).
 - In f1_fsm, cmd_seq is true if the current state is not S0 or S8. If the current state is S0, we want it to stay there indefinitely until trigger is asserted. If the current state is S8, then we want en to be dependent on delay.sv, not clktick.sv.
 - In f1_fsm, cmd_delay is true if the current state is S8, at which point the pseudorandom delay will begin.
 - lfsr.en is always set to 1 so it will keep cycling through random numbers. This maximises the apparent randomness on each instantiation of the state machine.
@@ -38,3 +39,7 @@ Aborted (core dumped)
 ```
 
 There was no observable pattern to these crashes.
+
+After asking for assistance, it was found that this was a hardware issue with Vbuddy that was as-of-yet unresolved. It was not a fatal issue, but it did make testing more time-consuming.
+
+At the end, I decided to add a bcd converter to display the reaction time in decimal rather than hex. Since the reaction time test was done purely in the testbench, I decided to code the bcd converter into the testbench as well rather than using the bin2bcd.sv component from a previous lab. This was done by dividing by a power of 10, then taking the modulus with 10 (to find the LS decimal digit).
